@@ -1,0 +1,123 @@
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+
+p {
+  border-bottom: solid 1px;
+  border-color: #eee #eee;
+}
+
+#nav1
+{
+    background-color: white;
+    border-bottom: solid red 1px;
+}
+
+.agreements {
+  margin-bottom: 11px !important;
+  border-bottom: solid 1px;
+  white-space: nowrap;
+}
+
+.readability {
+  margin-bottom: 11px;
+  border-bottom: solid 1px;
+  white-space: nowrap;
+}
+
+
+.cyan {
+  color: cyan;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.green {
+  color: green;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.yellow {
+  color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.orange {
+  color: orange;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.red {
+  color: red;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.checkboxgroup{
+    display: inline-block;
+    text-align: center;
+}
+.checkboxgroup label {
+    display: inline-block;
+}
+
+.agreements {
+  margin-bottom: 11px;
+  border-bottom: solid 1px;
+  text-align: center;
+  vertical-align: middle;
+  border-color: lightgray;
+}
+
+
+
+.animationload {
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.osahanloading {
+    animation: 1.5s linear 0s normal none infinite running osahanloading;
+    background: #fed37f none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 50px;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+}
+.osahanloading::after {
+    animation: 1.5s linear 0s normal none infinite running osahanloading_after;
+    border-color: #85d6de transparent;
+    border-radius: 80px;
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    height: 80px;
+    left: -15px;
+    position: absolute;
+    top: -15px;
+    width: 80px;
+}
+@keyframes osahanloading {
+  0% {
+      transform: rotate(0deg);
+  }
+  50% {
+      background: #85d6de none repeat scroll 0 0;
+      transform: rotate(180deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+.firstHighlight {
+  background-color: red;
+}
+.secondHighlight {
+  background-color: yellow;
+}
