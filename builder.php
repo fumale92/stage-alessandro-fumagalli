@@ -48,11 +48,47 @@
                         <label id="btnReset" class="btn btn-warning" style="width:30%">Reset</label>
                       </div>
                     </form>
+                    <br>
+                    <div class="checkboxgroup" style="100%">
+                      <input id="buttonBG" name="buttonBG" type="checkbox" style="width:30%" align="right">
+                    </div>
                   </div>
-                  <br>
-                  <input id="buttonBG" name="buttonBG" type="checkbox">
                 </div>
               </div>
+
+              <div class="col-xs-12 col-md-12" id="briefing">
+                <div class="row">
+                  <div class="col-xs-8 col-md-8" id="briefing_informedConsent" style="font-style: italic">
+                    <h5>
+                      <!-- BRIEFING INFORMED CONSENT <br> -->
+                      Nella sezione sottostante sono riportati tutti i paragrafi del consenso informato.
+                      Ogni paragrafo è diviso dal successivo grazie ad una linea di colore grigio.
+                    </h5>
+                  </div>
+                  <div class="col-xs-1 col-md-1" id="briefing_readabilityCircles">
+                    <h5>
+                      <!-- BRIEFING READABILITY CIRCLES <br>
+                      <i class="fa fa-circle cyan" aria-hidden="true"></i> : molto facile <br>
+                      <i class="fa fa-circle green" aria-hidden="true"></i> : facile <br>
+                      <i class="fa fa-circle yellow" aria-hidden="true"></i> : medio <br>
+                      <i class="fa fa-circle orange" aria-hidden="true"></i> : difficile <br>
+                      <i class="fa fa-circle red" aria-hidden="true"></i> : molto difficile
+                    </h5> -->
+                    <div id="grad1"></div>
+                    &nbspFACILITA'&nbsp<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-3 col-md-3" id="briefing_reactions">
+                    <h5 style="text-align: center">
+                      <!-- BRIEFING REACTIONS <br> -->
+                      <img src="assets/img/Anguished_Face_Emoji.png" height="25" width="25"> : sono intimorito
+                       |
+                      <!-- <br> -->
+                      <img src="assets/img/Hushed_Face_Emoji.png" height="25" width="25"> : non capisco
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
             </nav>
             <div class="panel-body" id="text-body">
               <div class="col-xs-12 text-center" id="renderingText">
@@ -89,8 +125,8 @@
     <script type="text/javascript">
       $.fn.bootstrapSwitch.defaults.onColor = 'success';
       $.fn.bootstrapSwitch.defaults.offColor = 'danger';
-      $.fn.bootstrapSwitch.defaults.size = 'small';
-      $.fn.bootstrapSwitch.defaults.labelText = 'Background';
+      $.fn.bootstrapSwitch.defaults.size = 'medium';
+      $.fn.bootstrapSwitch.defaults.labelText = 'Sfondo';
 
       $("[name='buttonBG']").bootstrapSwitch();
       buildpage();

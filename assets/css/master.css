@@ -4,26 +4,54 @@
 }
 
 p {
+  padding-bottom: 10px;
   border-bottom: solid 1px;
-  border-color: #eee #eee;
+  border-color: #cccccc;
 }
 
-#nav1
-{
+#nav1 {
     background-color: white;
     border-bottom: solid red 1px;
+    /*background-color: lightgrey;*/
+    /*opacity: 0.6;*/
+}
+
+#briefing {
+  border-top: solid 1px #cccccc
+}
+
+#grad1 {
+    height: 20px;
+    /*width: 100px;*/
+    background: -webkit-linear-gradient(left, red, orange, yellow, green, cyan); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, red, orange, yellow, green, cyan); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, red, orange, yellow, green, cyan); /* For Fx 3.6 to 15 */
+    background: linear-gradient(left, red, orange, yellow, green, cyan); /* Standard syntax (must be last) */
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
 .agreements {
-  margin-bottom: 11px !important;
+  margin-bottom: 11px;
   border-bottom: solid 1px;
+  border-color: #cccccc;
   white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .readability {
   margin-bottom: 11px;
   border-bottom: solid 1px;
+  border-color: #cccccc;
   white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -40,7 +68,7 @@ p {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .orange {
-  color: orange;
+  color: #ff7700;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .red {
@@ -56,15 +84,6 @@ p {
 .checkboxgroup label {
     display: inline-block;
 }
-
-.agreements {
-  margin-bottom: 11px;
-  border-bottom: solid 1px;
-  text-align: center;
-  vertical-align: middle;
-  border-color: lightgray;
-}
-
 
 
 .animationload {
@@ -116,8 +135,12 @@ p {
 
 
 .firstHighlight {
-  background-color: red;
+  background-color: #ea5e46;
 }
 .secondHighlight {
   background-color: yellow;
+}
+
+.undo {
+  margin-top: -5px;
 }

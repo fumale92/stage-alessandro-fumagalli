@@ -54,6 +54,11 @@ class InformedConsent {
     $("#header").append("<h5>\"" + this.footer + "\"</h5>");
     var height = $("#header").height() + 20;
     $("#text-body").css({"margin-top": (height + 'px')})
+
+    var headerHeight = $("#header").height();
+    var briefingHeight = $("#briefing").height();
+    var height = headerHeight + briefingHeight + 20;
+    $("#text-body").css({"margin-top": (height + 'px')})
   }
 
 
@@ -114,16 +119,16 @@ class InformedConsent {
         $("#p" + paragraphNumber).css({"background-color": "#ffffff"});
         break;
       case 2:
-        $("#p" + paragraphNumber).css({"background-color": "#d9d9d9"});
+        $("#p" + paragraphNumber).css({"background-color": "#e5e5e5"});
         break;
       case 3:
-        $("#p" + paragraphNumber).css({"background-color": "#b3b3b3"});
+        $("#p" + paragraphNumber).css({"background-color": "#cccccc"});
         break;
       case 4:
-        $("#p" + paragraphNumber).css({"background-color": "#8c8c8c"});
+        $("#p" + paragraphNumber).css({"background-color": "#a8a8a8"});
         break;
       case 5:
-        $("#p" + paragraphNumber).css({"background-color": "#737373"});
+        $("#p" + paragraphNumber).css({"background-color": "#8c8c8c"});
         break;
       default:
     }
@@ -134,7 +139,7 @@ class InformedConsent {
     var paragraphNumber = 1;
     this.paragraphs.forEach(function(paragraph) {
       $("#readability-icon").append("<div class=\"readability\" id=\"readabilityParagraph" + paragraphNumber + "\" align=\"center\"></div>");
-      $("#readabilityParagraph" + paragraphNumber).css({'height':($("#p" + paragraphNumber).height()+'px')});
+      $("#readabilityParagraph" + paragraphNumber).css({'height':($("#p" + paragraphNumber).height()+ 10 +'px')});
       var idReadability;
       switch (readabilityCode) {
         case 1:
@@ -150,79 +155,96 @@ class InformedConsent {
       }
       switch (idReadability) {
         case 1:
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
           break;
         case 2:
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           break;
         case 3:
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           break;
         case 4:
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i> ");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           break;
         case 5:
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i> ");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i> ");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           break;
         default:
       }
       paragraphNumber++;
     })
-    // var avg;
     switch (readabilityCode) {
       case 1:
-        // avg = this.readabilityIndexes.gulpease;
         $("#metricValue").append("<h4 align=\"center\">" + this.readabilityIndexes.gulpease + "/100</h4>");
         break;
       case 2:
-        // avg = this.readabilityIndexes.colemanLiau;
         $("#metricValue").append("<h4 align=\"center\">" + this.readabilityIndexes.colemanLiau + "/16</h4>");
         break;
       case 3:
-        // avg = this.readabilityIndexes.ari;
-        $("#metricValue").append("<h4 align=\"center\">" + this.readabilityIndexes.ari + "/16</h4>");
+        if(this.readabilityIndexes.ari != Infinity){
+          $("#metricValue").append("<h4 align=\"center\">" + this.readabilityIndexes.ari + "/100</h4>");
+        } else
+          $("#metricValue").append("<h4 align=\"center\">N/A</h4>");
         break;
       default:
     }
-    // $("#metricValue").append("<h4 align=\"center\">" + avg + "</h4>");
-    $("#metricValue").append("<button id=\"hideIcon\" onclick=\"text.hideIcons()\">NASCONDI</button>");
+    $("#metricValue").append("<button id=\"hideIcon\" class=\"btn btn-default\" onclick=\"text.hideIcons()\">NASCONDI</button>");
+
+    $("#metricValue").append("<input id=\"buttonReadabilityCircles\" type=\"checkbox\" name=\"buttonReadabilityCircles\" checked>");
+    $.fn.bootstrapSwitch.defaults.onColor = 'success';
+    $.fn.bootstrapSwitch.defaults.offColor = 'danger';
+    $.fn.bootstrapSwitch.defaults.size = 'medium';
+    $.fn.bootstrapSwitch.defaults.onText = 'show';
+    $.fn.bootstrapSwitch.defaults.offText = 'hide';
+    $.fn.bootstrapSwitch.defaults.labelText = '';
+    $("[name='buttonReadabilityCircles']").bootstrapSwitch();
+    $("[name='buttonReadabilityCircles']'").on('switchChange.bootstrapSwitch', function(){
+      if ($("#bootstrap-switch-id-buttonReadabilityCircles").hasClass("bootstrap-switch-on")) {
+        console.log("DIOOOO");
+        $("#readability-icon").show();
+        $("#readability-icon-empty").hide();
+      } else {
+        $("#readability-icon").hide();
+        $("#readability-icon-empty").show();
+      }
+    })
   }
 
 
-  hideIcons() {
-    $("#readability-icon").hide();
-    $("#readability-icon-empty").show();
-    $("#hideIcon").text("MOSTRA");
-    $("#hideIcon").attr("onclick","text.showIcons()");
-  }
-
-
-  showIcons() {
-    $("#readability-icon").show();
-    $("#readability-icon-empty").hide();
-    $("#hideIcon").text("NASCONDI");
-    $("#hideIcon").attr("onclick","text.hideIcons()");
-  }
+  // hideIcons() {
+  //   $("#readability-icon").hide();
+  //   $("#readability-icon-empty").show();
+  //   $("#hideIcon").text("MOSTRA");
+  //   $("#hideIcon").attr("onclick","text.showIcons()");
+  // }
+  //
+  //
+  // showIcons() {
+  //   $("#readability-icon").show();
+  //   $("#readability-icon-empty").hide();
+  //   $("#hideIcon").text("NASCONDI");
+  //   $("#hideIcon").attr("onclick","text.hideIcons()");
+  // }
 
 
   readabilityIndex (readabilityCode) {
@@ -252,21 +274,13 @@ class InformedConsent {
     this.paragraphs.forEach(function(paragraph) {
       if(!jQuery.isEmptyObject(paragraph.readabilityIndexes)){
         $("#agreements-button").append("<div class=\"agreements\" id=\"paragraphAgreements" + paragraph.id + "\"></div>");
-        $("#paragraphAgreements" + paragraph.id).css({'height':($("#p" + paragraph.id).height()+'px')});
-        // $("#paragraphAgreements" + paragraph.id).append("<input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"firstFakeRadio" + paragraph.id + "\" onclick=\"text.firstHighlightText(" + paragraph.id + ")\"><span id=\"opt1span" + paragraph.id + "\">&nbsp;Mi fa paura&nbsp;&nbsp;&nbsp;</span>");
-        $("#paragraphAgreements" + paragraph.id).append("<input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"firstFakeRadio" + paragraph.id + "\" onclick=\"text.firstHighlightText(" + paragraph.id + ")\"><span id=\"opt1span" + paragraph.id + "\">&nbsp<i class=\"fa fa-frown-o fa-lg\" aria-hidden=\"true\"></i>&nbsp&nbsp&nbsp</span>");
-        // $("#paragraphAgreements" + paragraph.id).append("<input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"secondFakeRadio" + paragraph.id + "\" onclick=\"text.secondHighlightText(" + paragraph.id + ")\"><span id=\"opt2span" + paragraph.id +"\">&nbsp;Non ho capito&nbsp;</span>");
-        $("#paragraphAgreements" + paragraph.id).append("<input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"secondFakeRadio" + paragraph.id + "\" onclick=\"text.secondHighlightText(" + paragraph.id + ")\"><span id=\"opt2span" + paragraph.id +"\">&nbsp<i class=\"fa fa-meh-o fa-lg\" aria-hidden=\"true\"></i>&nbsp&nbsp&nbsp</span>");
-
-        // $("#paragraphAgreements" + paragraph.id).append("<input class=\"btn btn-default btn-xs\" type=\"button\" onclick=\"text.clearAgreement(" + paragraph.id + ")\" value=\"azzera\"/>");
-        $("#paragraphAgreements" + paragraph.id).append("<label class=\"btn btn-default btn-xs\" onclick=\"text.clearAgreement(" + paragraph.id + ")\"><input id=\"clearReaction" + paragraph.id + "\" type=\"radio\">&nbsp<i class=\"fa fa-undo fa-lg\" aria-hidden=\"true\"></i></i>&nbsp&nbsp&nbsp</span>");
-
-        // <label id="gulpease" class="btn btn-default" name="readabilityIndexName" style="width:30%">
-        //   <input type="radio">Gulpease
-        // </label>
+        $("#paragraphAgreements" + paragraph.id).css({'height':($("#p" + paragraph.id).height()+ 10 +'px')});
+        $("#paragraphAgreements" + paragraph.id).append("<label><input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"firstFakeRadio" + paragraph.id + "\" onclick=\"text.firstHighlightText(" + paragraph.id + ")\">&nbsp<img src=\"assets/img/Anguished_Face_Emoji.png\" height=\"25\" width=\"25\">&nbsp&nbsp&nbsp</label>");
+        $("#paragraphAgreements" + paragraph.id).append("<label><input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"secondFakeRadio" + paragraph.id + "\" onclick=\"text.secondHighlightText(" + paragraph.id + ")\">&nbsp<img src=\"assets/img/Hushed_Face_Emoji.png\" height=\"25\" width=\"25\">&nbsp&nbsp&nbsp</label>");
+        $("#paragraphAgreements" + paragraph.id).append("<label class=\"btn btn-default btn-sm undo\" onclick=\"text.clearAgreement(" + paragraph.id + ")\"><i class=\"fa fa-undo fa-lg\" aria-hidden=\"true\"></i></label>");
       } else {
         $("#agreements-button").append("<div class=\"agreements\" id=\"paragraphAgreements" + paragraph.id + "\"></div>");
-        $("#paragraphAgreements" + paragraph.id).css({'height':($("#p" + paragraph.id).height()+'px')});
+        $("#paragraphAgreements" + paragraph.id).css({'height':($("#p" + paragraph.id).height()+ 10 +'px')});
       }
     })
   }
@@ -288,7 +302,7 @@ class InformedConsent {
 
 
   firstHighlightText(paragraphNumber) {
-    if (window.getSelection) {
+    if (window.getSelection().isCollapsed == false) {
       var selectedText = window.getSelection().toString();
       if(!selectedText.match(/[\n]/)){
         var thisText = $('#p' + paragraphNumber).text();
@@ -314,19 +328,25 @@ class InformedConsent {
         }
         $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
         $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
-        $('#opt1span' + paragraphNumber).css({'font-style': 'italic'});
       } else {
-        alert('You cannot select more paragraphs');
+        alert('Non è possibile selezionare più paragrafi contemporaneamente');
         $(".firstFakeRadio" + paragraphNumber).prop('checked', false);
       }
-    } else if ( document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
+    } else {
+        var text = $('#p'+paragraphNumber).text(),
+        spn = '<span class="firstHighlight" id="highlight' + paragraphNumber + '">' + text + '</span>';
+        $('#p'+paragraphNumber).html(spn);
+        this.paragraphs[paragraphNumber-1].agreements.selectionStart = 0;
+        this.paragraphs[paragraphNumber-1].agreements.selectionEnd = text.length;
+        this.paragraphs[paragraphNumber-1].agreements.selectionChoice = "Mi fa paura";
+        $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
+        $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
     }
   }
 
 
   secondHighlightText(paragraphNumber) {
-    if (window.getSelection) {
+    if (window.getSelection().isCollapsed == false) {
       var selectedText = window.getSelection().toString();
       if(!selectedText.match(/[\n]/)){
         var thisText = $('#p' + paragraphNumber).text();
@@ -352,13 +372,19 @@ class InformedConsent {
         }
         $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
         $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
-        $('#opt2span' + paragraphNumber).css({'font-style': 'italic'});
       } else {
-        alert('You cannot select more paragraphs');
+        alert('Non è possibile selezionare più paragrafi contemporaneamente');
         $(".secondFakeRadio" + paragraphNumber).prop('checked', false);
       }
-    } else if ( document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
+    } else {
+        var text = $('#p'+paragraphNumber).text(),
+        spn = '<span class="secondHighlight" id="highlight' + paragraphNumber + '">' + text + '</span>';
+        $('#p'+paragraphNumber).html(spn);
+        this.paragraphs[paragraphNumber-1].agreements.selectionStart = 0;
+        this.paragraphs[paragraphNumber-1].agreements.selectionEnd = text.length;
+        this.paragraphs[paragraphNumber-1].agreements.selectionChoice = "Non ho capito";
+        $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
+        $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
     }
   }
 
