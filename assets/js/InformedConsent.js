@@ -52,12 +52,12 @@ class InformedConsent {
       $("#header").append("<h4>" + subtitle + "</h4>");
     })
     $("#header").append("<h5>\"" + this.footer + "\"</h5>");
-    var height = $("#header").height() + 20;
-    $("#text-body").css({"margin-top": (height + 'px')})
+    // var height = $("#header").height() + 20;
+    // $("#text-body").css({"margin-top": (height + 'px')})
 
     var headerHeight = $("#header").height();
     var briefingHeight = $("#briefing").height();
-    var height = headerHeight + briefingHeight + 20;
+    var height = headerHeight + briefingHeight + 10;
     $("#text-body").css({"margin-top": (height + 'px')})
   }
 
@@ -134,6 +134,24 @@ class InformedConsent {
     }
   }
 
+  zoomIn(){
+    var fontSize = $('p').css('font-size').slice(0, -2);
+    $('p').css({'font-size':  parseInt(fontSize) + 2 +'px'});
+    for (var i = 1; i < this.paragraphs.length+1; i++) {
+      $('#paragraphAgreements'+i).css({'height':($("#p" + i).height()+ 10 +'px')});
+      $('#readabilityParagraph'+i).css({'height':($("#p" + i).height()+ 10 +'px')});
+    }
+  }
+
+  zoomOut(){
+    var fontSize = $('p').css('font-size').slice(0, -2);
+    $('p').css({'font-size':  parseInt(fontSize) - 2 +'px'});
+    for (var i = 1; i < this.paragraphs.length+1; i++) {
+      $('#paragraphAgreements'+i).css({'height':($("#p" + i).height()+ 10 +'px')});
+      $('#readabilityParagraph'+i).css({'height':($("#p" + i).height()+ 10 +'px')});
+    }
+  }
+
 
   readabilitySign(readabilityCode) {
     var paragraphNumber = 1;
@@ -159,35 +177,35 @@ class InformedConsent {
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle cyan\" aria-hidden=\"true\"></i>");
           break;
         case 2:
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle green\" aria-hidden=\"true\"></i>&nbsp");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>");
           break;
         case 3:
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle yellow\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>");
           break;
         case 4:
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle orange\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>");
           break;
         case 5:
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle red\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
           $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
-          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>&nbsp");
+          $("#readabilityParagraph" + paragraphNumber).append("<i class=\"fa fa-circle-o\" aria-hidden=\"true\"></i>");
           break;
         default:
       }
@@ -208,43 +226,38 @@ class InformedConsent {
         break;
       default:
     }
-    $("#metricValue").append("<button id=\"hideIcon\" class=\"btn btn-default\" onclick=\"text.hideIcons()\">NASCONDI</button>");
-
-    $("#metricValue").append("<input id=\"buttonReadabilityCircles\" type=\"checkbox\" name=\"buttonReadabilityCircles\" checked>");
+    $("#metricValue").append("<div id=\"showIcons\">Mostra<input id=\"buttonReadabilityCircles\" type=\"checkbox\" name=\"buttonReadabilityCircles\" checked></div>");
     $.fn.bootstrapSwitch.defaults.onColor = 'success';
     $.fn.bootstrapSwitch.defaults.offColor = 'danger';
     $.fn.bootstrapSwitch.defaults.size = 'medium';
-    $.fn.bootstrapSwitch.defaults.onText = 'show';
-    $.fn.bootstrapSwitch.defaults.offText = 'hide';
-    $.fn.bootstrapSwitch.defaults.labelText = '';
+    $.fn.bootstrapSwitch.defaults.onText = 'ON';
+    $.fn.bootstrapSwitch.defaults.offText = 'OFF';
+    $.fn.bootstrapSwitch.defaults.labelText = '<i class="fa fa-eye fa-lg" aria-hidden="true"></i>';
+
     $("[name='buttonReadabilityCircles']").bootstrapSwitch();
-    $("[name='buttonReadabilityCircles']'").on('switchChange.bootstrapSwitch', function(){
-      if ($("#bootstrap-switch-id-buttonReadabilityCircles").hasClass("bootstrap-switch-on")) {
-        console.log("DIOOOO");
-        $("#readability-icon").show();
-        $("#readability-icon-empty").hide();
+    $("[name='buttonReadabilityCircles']").on('switchChange.bootstrapSwitch', function(){
+      if ($(".bootstrap-switch-id-buttonReadabilityCircles").hasClass("bootstrap-switch-on")) {
+        $("[name='buttonReadabilityCircles']").bootstrapSwitch("labelText", '<i class="fa fa-eye fa-lg" aria-hidden="true"></i>');
+        text.showIcons();
       } else {
-        $("#readability-icon").hide();
-        $("#readability-icon-empty").show();
+        $("[name='buttonReadabilityCircles']").bootstrapSwitch("labelText", '<i class="fa fa-eye-slash fa-lg" aria-hidden="true"></i>');
+        text.hideIcons();
       }
     })
+    $("#showIcons").css({'margin-top': ($("#header").height() - $("#metricValue").height() +'px')});
   }
 
 
-  // hideIcons() {
-  //   $("#readability-icon").hide();
-  //   $("#readability-icon-empty").show();
-  //   $("#hideIcon").text("MOSTRA");
-  //   $("#hideIcon").attr("onclick","text.showIcons()");
-  // }
-  //
-  //
-  // showIcons() {
-  //   $("#readability-icon").show();
-  //   $("#readability-icon-empty").hide();
-  //   $("#hideIcon").text("NASCONDI");
-  //   $("#hideIcon").attr("onclick","text.hideIcons()");
-  // }
+  hideIcons() {
+    $("#readability-icon").hide();
+    $("#readability-icon-empty").show();
+  }
+
+
+  showIcons() {
+    $("#readability-icon").show();
+    $("#readability-icon-empty").hide();
+  }
 
 
   readabilityIndex (readabilityCode) {
@@ -275,9 +288,9 @@ class InformedConsent {
       if(!jQuery.isEmptyObject(paragraph.readabilityIndexes)){
         $("#agreements-button").append("<div class=\"agreements\" id=\"paragraphAgreements" + paragraph.id + "\"></div>");
         $("#paragraphAgreements" + paragraph.id).css({'height':($("#p" + paragraph.id).height()+ 10 +'px')});
-        $("#paragraphAgreements" + paragraph.id).append("<label><input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"firstFakeRadio" + paragraph.id + "\" onclick=\"text.firstHighlightText(" + paragraph.id + ")\">&nbsp<img src=\"assets/img/Anguished_Face_Emoji.png\" height=\"25\" width=\"25\">&nbsp&nbsp&nbsp</label>");
-        $("#paragraphAgreements" + paragraph.id).append("<label><input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"secondFakeRadio" + paragraph.id + "\" onclick=\"text.secondHighlightText(" + paragraph.id + ")\">&nbsp<img src=\"assets/img/Hushed_Face_Emoji.png\" height=\"25\" width=\"25\">&nbsp&nbsp&nbsp</label>");
-        $("#paragraphAgreements" + paragraph.id).append("<label class=\"btn btn-default btn-sm undo\" onclick=\"text.clearAgreement(" + paragraph.id + ")\"><i class=\"fa fa-undo fa-lg\" aria-hidden=\"true\"></i></label>");
+        $("#paragraphAgreements" + paragraph.id).append("<label><input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"firstFakeRadio" + paragraph.id + "\" onclick=\"text.firstHighlightText(" + paragraph.id + "); text.checkReactions()\">&nbsp<img src=\"assets/img/Anguished_Face_Emoji.png\" height=\"27\" width=\"27\">&nbsp&nbsp&nbsp</label>");
+        $("#paragraphAgreements" + paragraph.id).append("<label><input type=\"radio\" name=\"optradio"+ paragraph.id +"\" class=\"secondFakeRadio" + paragraph.id + "\" onclick=\"text.secondHighlightText(" + paragraph.id + "); text.checkReactions()\">&nbsp<img src=\"assets/img/Confused_Face_Emoji.png\" height=\"27\" width=\"27\">&nbsp&nbsp&nbsp</label>");
+        $("#paragraphAgreements" + paragraph.id).append("<label class=\"btn btn-primary btn-circle btn-sm undo\" onclick=\"text.clearAgreement(" + paragraph.id + "); text.checkReactions()\"><i class=\"fa fa-undo fa-lg\" aria-hidden=\"true\"></i></label>");
       } else {
         $("#agreements-button").append("<div class=\"agreements\" id=\"paragraphAgreements" + paragraph.id + "\"></div>");
         $("#paragraphAgreements" + paragraph.id).css({'height':($("#p" + paragraph.id).height()+ 10 +'px')});
@@ -287,9 +300,9 @@ class InformedConsent {
 
 
   clearAgreement (paragraphNumber) {
-    this.paragraphs[paragraphNumber-1].agreements.selectionStart = undefined;
-    this.paragraphs[paragraphNumber-1].agreements.selectionEnd = undefined;
-    this.paragraphs[paragraphNumber-1].agreements.selectionChoice = undefined;
+    delete this.paragraphs[paragraphNumber-1].agreements.selectionStart;
+    delete this.paragraphs[paragraphNumber-1].agreements.selectionEnd;
+    delete this.paragraphs[paragraphNumber-1].agreements.selectionChoice;
     $(".firstFakeRadio" + paragraphNumber).prop('checked', false);
     $(".firstFakeRadio" + paragraphNumber).prop('disabled', false);
     $(".secondFakeRadio" + paragraphNumber).prop('checked', false);
@@ -324,10 +337,13 @@ class InformedConsent {
             range = highlight.getRangeAt(0),
             startText = text.substring(0, range.startOffset),
             endText = text.substring(range.endOffset, text.length);
-            $('#p'+paragraphNumber).html(startText + spn + endText);
+          $('#p'+paragraphNumber).html(startText + spn + endText);
+          $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
+          $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
+        } else {
+          // alert('Puoi cliccare solo su una reazione del paragrafo che hai selezionato');
+          $('.firstFakeRadio'+paragraphNumber).prop('checked', false);
         }
-        $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
-        $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
       } else {
         alert('Non è possibile selezionare più paragrafi contemporaneamente');
         $(".firstFakeRadio" + paragraphNumber).prop('checked', false);
@@ -363,15 +379,18 @@ class InformedConsent {
         var numberOfParagraph = idParent.match(/\d+/);
         if (numberOfParagraph == paragraphNumber) {
           var highlight = window.getSelection(),
-          spn = '<span class="secondHighlight" id="highlight' + paragraphNumber + '">' + highlight + '</span>',
+            spn = '<span class="secondHighlight" id="highlight' + paragraphNumber + '">' + highlight + '</span>',
             text = $('#p'+paragraphNumber).text(),
             range = highlight.getRangeAt(0),
             startText = text.substring(0, range.startOffset),
             endText = text.substring(range.endOffset, text.length);
-            $('#p'+paragraphNumber).html(startText + spn + endText);
+          $('#p'+paragraphNumber).html(startText + spn + endText);
+          $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
+          $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
+        } else {
+          // alert('Puoi cliccare solo su una reazione del paragrafo che hai selezionato');
+          $('.secondFakeRadio'+paragraphNumber).prop('checked', false);
         }
-        $('.firstFakeRadio' + paragraphNumber).attr('disabled', true);
-        $('.secondFakeRadio' + paragraphNumber).attr('disabled', true);
       } else {
         alert('Non è possibile selezionare più paragrafi contemporaneamente');
         $(".secondFakeRadio" + paragraphNumber).prop('checked', false);
@@ -388,6 +407,38 @@ class InformedConsent {
     }
   }
 
+
+  resetReactions() {
+    for (var i = 1; i < this.paragraphs.length+1; i++) {
+      if(!jQuery.isEmptyObject(this.paragraphs[i-1].agreements))
+        this.clearAgreement(i);
+    }
+    $('#resetReactions').prop('disabled', true);
+    $('#agree').attr('disabled', false);
+    $('#agree').prop('checked', false);
+    $('#disagree').prop('checked', false);
+    $('#finalSubmit').attr('disabled', true);
+  }
+
+  checkReactions() {
+    var found = false;
+    for (var i = 0; i < this.paragraphs.length; i++) {
+      if(!jQuery.isEmptyObject(this.paragraphs[i].agreements)){
+        $('#resetReactions').prop('disabled', false);
+        $('#agree').attr('disabled', true);
+        $('#agree').prop('checked', false);
+        $('#disagree').prop('checked', true);
+        $('#finalSubmit').attr('disabled', false);
+        found = true;
+      } else if(found == false){
+        $('#resetReactions').prop('disabled', true);
+        $('#agree').attr('disabled', false);
+        $('#agree').prop('checked', false);
+        $('#disagree').prop('checked', false);
+        $('#finalSubmit').attr('disabled', true);
+      }
+    }
+  }
 
   agreed(choice) {
     this.accepted = choice;

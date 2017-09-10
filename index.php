@@ -21,7 +21,7 @@
           <h3>Selezionare un consenso informato con estensione TXT:</h3>
           <form class="form" action="upload.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <input type="file" class="file" name="fileToUpload" id="fileToUpload" accept="text/plain">
+              <input type="file" class="file" name="fileToUpload" id="fileToUpload" accept="text/plain,text/html">
               <div class="input-group">
                 <span class="input-group-addon">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>

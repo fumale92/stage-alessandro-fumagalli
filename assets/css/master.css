@@ -5,14 +5,14 @@
 
 p {
   padding-bottom: 10px;
+  /*box-shadow: 0px 24px 3px -24px #cccccc;*/
   border-bottom: solid 1px;
   border-color: #cccccc;
 }
 
 #nav1 {
-    background-color: white;
-    border-bottom: solid red 1px;
-    /*background-color: lightgrey;*/
+    border-bottom: solid green 1px;
+    background: aliceblue;
     /*opacity: 0.6;*/
 }
 
@@ -77,15 +77,6 @@ p {
 }
 
 
-.checkboxgroup{
-    display: inline-block;
-    text-align: center;
-}
-.checkboxgroup label {
-    display: inline-block;
-}
-
-
 .animationload {
     background-color: #fff;
     height: 100%;
@@ -136,6 +127,7 @@ p {
 
 .firstHighlight {
   background-color: #ea5e46;
+  color: white;
 }
 .secondHighlight {
   background-color: yellow;
@@ -143,4 +135,34 @@ p {
 
 .undo {
   margin-top: -5px;
+}
+
+.bootstrap-switch-id-buttonReadabilityCircles{
+  align: center;
+}
+
+.readabilityControls{
+  padding: 4px;
+  border: solid green 2px;
+  border-radius: 6px;
+}
+
+.btn-circle {
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  padding: 5px 0;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+.btn-circle-symbol {
+  background-image: -webkit-linear-gradient(top,#337ab7 0,#265a88 100%);
+  color: white;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding: 6px 0;
+  line-height: 1.42;
+  border-radius: 15px;
 }

@@ -20,7 +20,7 @@
         <div class="col-xs-12">
           <div class="row panel panel-default">
             <nav class="navbar navbar-default navbar-fixed-top" id="nav1">
-              <div class="panel-body">
+              <div class="panel-body" style="margin-bottom: -27px;">
                 <div class="col-xs-8 col-md-8 text-center" id="header">
                 </div>
                 <div class="col-xs-1 col-md-1 text-center" id="metricValue">
@@ -29,66 +29,90 @@
                 <div class="col-xs-3 col-md-3 text-right" id="visualization">
                   <div class="readabilityControls">
                     <h4 align="center">Scegliere l'indice di leggibilità:</h4>
-                    <form class="form" align="center">
-                      <div class="checkboxgroup" data-toggle="buttons" style="width:100%">
-                        <label id="gulpease" class="btn btn-default" name="readabilityIndexName" style="width:30%">
-                          <input type="radio">Gulpease
-                        </label>
-                        <label id="colemanLiau" class="btn btn-default" name="readabilityIndexName" style="width:30%">
-                          <input type="radio">Coleman
-                        </label>
-                        <label id="ARI" class="btn btn-default" name="readabilityIndexName" style="width:30%">
-                          <input type="radio">ARI
-                        </label>
+                    <div class="row" style="margin-bottom: 20px">
+                      <div class="btn-group col-xs-12" data-toggle="buttons">
+                        <button class="col-xs-4 btn btn-default bstooltip" id="gulpease" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Descrizione Gulpease">
+                          <input type="radio" name="readabilityIndexName">Gulpease
+                        </button>
+                        <button class="col-xs-4 btn btn-default bstooltip" id="colemanLiau" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Descrizione Coleman Liau">
+                          <input type="radio" name="readabilityIndexName">Coleman
+                        </button>
+                        <button class="col-xs-4 btn btn-default bstooltip" id="ARI" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Descrizione Automated Readability Index">
+                          <input type="radio" name="readabilityIndexName">ARI
+                        </button>
                       </div>
-                    </form>
-                    <br>
-                    <form class="form" align="center">
-                      <div class="checkboxgroup" data-toggle="buttons" style="width:100%" align="center">
-                        <label id="btnReset" class="btn btn-warning" style="width:30%">Reset</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <button class="col-xs-4 btn btn-info bstooltip" id="btnReset" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Ripristina gli indici di leggibilità" disabled>
+                          Reset
+                        </button>
+                        <div class="col-xs-6 col-xs-offset-1 bstooltip" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Attiva lo sfondo colorato ai paragrafi" >
+                          <input id="buttonBG" name="buttonBG" type="checkbox" disabled>
+                        </div>
                       </div>
-                    </form>
-                    <br>
-                    <div class="checkboxgroup" style="100%">
-                      <input id="buttonBG" name="buttonBG" type="checkbox" style="width:30%" align="right">
+                    </div>
+                  </div>
+                    <div class="row" id="resetReactionsRow">
+                      <div class="col-xs-12 text-center">
+                        <button class="col-xs-4 col-xs-offset-4 btn btn-warning bstooltip" id="resetReactions" onclick="text.resetReactions()" data-toggle="tooltip" data-trigger="manual" data-placement="top" data-trigger="manual" title="Cancella tutte le reazioni" disabled>
+                          Azzera
+                        </button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel-body" style="padding-bottom: 0px !important;">
+                <div class="col-xs-12 col-md-12" id="briefing">
+                  <div class="row">
+                    <div class="col-xs-8 col-md-8" id="briefing_informedConsent">
+                      <div class="col-xs-9">
+                        <h5 style="font-style: italic">
+                          Nella sezione sottostante sono riportati tutti i paragrafi del consenso informato.<br>
+                          Ogni paragrafo è diviso dal successivo grazie ad una linea di colore grigio.
+                        </h5>
+                      </div>
+                      <div class="col-xs-3" style="margin-top:10px" align="right">
+                        <div class="btn-group pull-right" role="group" >
+                          <button class="btn btn-default btn-sm bstooltip" type="button" id="zoomIn" onclick="text.zoomIn()" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Aumenta la dimensione dei caratteri">
+                            <i class="fa fa-search-plus fa-lg" aria-hidden="true"></i>
+                          </button>
+                          <button class="btn btn-default btn-sm bstooltip" type="button" id="zoomOut" onclick="text.zoomOut()" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Diminuisce la dimensione dei caratteri">
+                            <i class="fa fa-search-minus fa-lg" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                        <br><h5>Zoom&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+
+                      </div>
+                    </div>
+                    <div class="col-xs-1 col-md-1" id="briefing_readabilityCircles">
+                      <h5 style="text-align: center">
+                        <div id="grad1"></div>
+                        SEMPLICITA' <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                      </h5>
+                    </div>
+                    <div class="col-xs-3 col-md-3" id="briefing_reactions">
+                      <div class="col-xs-12">
+                        <div class="col-xs-4 text-center">
+                          <h5>
+                            <img src="assets/img/Anguished_Face_Emoji.png" height="25" width="25"><br>sono<br>intimorito
+                          </h5>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                          <h5>
+                            <img src="assets/img/Confused_Face_Emoji.png" height="25" width="25"><br>non<br>capisco
+                          </h5>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                          <h5>
+                            <i class="fa fa-undo btn-circle-symbol" aria-hidden="true"></i><br>cancella<br>selezione
+                          </h5>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="col-xs-12 col-md-12" id="briefing">
-                <div class="row">
-                  <div class="col-xs-8 col-md-8" id="briefing_informedConsent" style="font-style: italic">
-                    <h5>
-                      <!-- BRIEFING INFORMED CONSENT <br> -->
-                      Nella sezione sottostante sono riportati tutti i paragrafi del consenso informato.
-                      Ogni paragrafo è diviso dal successivo grazie ad una linea di colore grigio.
-                    </h5>
-                  </div>
-                  <div class="col-xs-1 col-md-1" id="briefing_readabilityCircles">
-                    <h5>
-                      <!-- BRIEFING READABILITY CIRCLES <br>
-                      <i class="fa fa-circle cyan" aria-hidden="true"></i> : molto facile <br>
-                      <i class="fa fa-circle green" aria-hidden="true"></i> : facile <br>
-                      <i class="fa fa-circle yellow" aria-hidden="true"></i> : medio <br>
-                      <i class="fa fa-circle orange" aria-hidden="true"></i> : difficile <br>
-                      <i class="fa fa-circle red" aria-hidden="true"></i> : molto difficile
-                    </h5> -->
-                    <div id="grad1"></div>
-                    &nbspFACILITA'&nbsp<i class="fa fa-arrow-right" aria-hidden="true"></i>
-                  </div>
-                  <div class="col-xs-3 col-md-3" id="briefing_reactions">
-                    <h5 style="text-align: center">
-                      <!-- BRIEFING REACTIONS <br> -->
-                      <img src="assets/img/Anguished_Face_Emoji.png" height="25" width="25"> : sono intimorito
-                       |
-                      <!-- <br> -->
-                      <img src="assets/img/Hushed_Face_Emoji.png" height="25" width="25"> : non capisco
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
             </nav>
             <div class="panel-body" id="text-body">
               <div class="col-xs-12 text-center" id="renderingText">
@@ -123,13 +147,23 @@
     </div>
 
     <script type="text/javascript">
-      $.fn.bootstrapSwitch.defaults.onColor = 'success';
-      $.fn.bootstrapSwitch.defaults.offColor = 'danger';
-      $.fn.bootstrapSwitch.defaults.size = 'medium';
-      $.fn.bootstrapSwitch.defaults.labelText = 'Sfondo';
-
-      $("[name='buttonBG']").bootstrapSwitch();
       buildpage();
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+      $('.bstooltip').mouseenter(function(){
+        var that = $(this)
+        that.tooltip('show');
+        setTimeout(function(){
+          that.tooltip('hide');
+        }, 2000);
+      });
+
+      $('.bstooltip').mouseleave(function(){
+        $(this).tooltip('hide');
+      });
     </script>
 
   </body>
