@@ -18,6 +18,11 @@ function buildpage(){
   text.paragraphsToHtml();
   text.paragraphIcon();
 
+  for (var i = 1; i < text.paragraphs.length+1; i++) {
+    var div = '<div id="hidden-div'+i+'" class="hidden-div" style="height:'+$('#p'+i).height()+'px "></div>';
+    $('#readability-icon-empty').append(div);
+  }
+
   var readability;
   $('#gulpease').click(function(){
     readability = 1;

@@ -10,7 +10,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center" style="margin-top: 50px">
-          <h1>QUESTIONARIO COMPLETATO</h1>
+          <h1>TASK COMPLETATO</h1>
+          <a href="https://goo.gl/forms/r1ka6sScN5EW1giv1"><h3>Questionario da compilare</h3></a>
           <script type="text/javascript">
            console.log(JSON.parse(localStorage.getItem("json")));
           </script>

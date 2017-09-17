@@ -4,10 +4,14 @@
 }
 
 p {
+  margin-top: 10px;
   padding-bottom: 10px;
-  /*box-shadow: 0px 24px 3px -24px #cccccc;*/
   border-bottom: solid 1px;
   border-color: #cccccc;
+}
+
+h5{
+  font-weight: bold;
 }
 
 #nav1 {
@@ -21,7 +25,7 @@ p {
 }
 
 #grad1 {
-    height: 20px;
+    height: 30px;
     /*width: 100px;*/
     background: -webkit-linear-gradient(left, red, orange, yellow, green, cyan); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(left, red, orange, yellow, green, cyan); /* For Opera 11.1 to 12.0 */
@@ -34,10 +38,11 @@ p {
     font-weight: bold;
 }
 
-.agreements {
-  margin-bottom: 11px;
+.reactions {
   border-bottom: solid 1px;
   border-color: #cccccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
@@ -45,33 +50,44 @@ p {
 }
 
 .readability {
-  margin-bottom: 11px;
   border-bottom: solid 1px;
   border-color: #cccccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.white {
+  margin-top: -20px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
 .cyan {
+  margin-top: -20px;
   color: cyan;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .green {
+  margin-top: -20px;
   color: green;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .yellow {
+  margin-top: -20px;
   color: yellow;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .orange {
+  margin-top: -20px;
   color: #ff7700;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .red {
+  margin-top: -20px;
   color: red;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -133,10 +149,6 @@ p {
   background-color: yellow;
 }
 
-.undo {
-  margin-top: -5px;
-}
-
 .bootstrap-switch-id-buttonReadabilityCircles{
   align: center;
 }
@@ -165,4 +177,38 @@ p {
   padding: 6px 0;
   line-height: 1.42;
   border-radius: 15px;
+}
+
+.reactionButton{
+  margin-top: -20px;
+  height: 27px;
+  width: 27px;
+  margin-right: 20px;
+}
+
+.reactionButton:hover{
+  filter: brightness(90%);
+}
+
+.reactionButton:active{
+  filter: brightness(50%);
+}
+
+.undo {
+  margin-top: -20px;
+}
+
+.reactionButton:focus {
+  outline: none;
+}
+
+.btn:focus{
+  outline: none;
+}
+
+.hidden-div{
+  margin-top: 21px;
+  margin-bottom: 21px;
+  border-bottom: solid 1px;
+  border-color: #cccccc;
 }

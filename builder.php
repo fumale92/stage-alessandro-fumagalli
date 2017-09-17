@@ -81,31 +81,33 @@
                             <i class="fa fa-search-minus fa-lg" aria-hidden="true"></i>
                           </button>
                         </div>
-                        <br><h5>Zoom&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                        <br><div style="margin-top: 20px">
+                          <h5>ZOOM&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                        </div>
 
                       </div>
                     </div>
                     <div class="col-xs-1 col-md-1" id="briefing_readabilityCircles">
                       <h5 style="text-align: center">
                         <div id="grad1"></div>
-                        SEMPLICITA' <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        <div style="margin-top: 10px">SEMPLICITA' <i class="fa fa-arrow-right" aria-hidden="true"></i></div>
                       </h5>
                     </div>
                     <div class="col-xs-3 col-md-3" id="briefing_reactions">
                       <div class="col-xs-12">
                         <div class="col-xs-4 text-center">
                           <h5>
-                            <img src="assets/img/Anguished_Face_Emoji.png" height="25" width="25"><br>sono<br>intimorito
+                            <img src="assets/img/Fearful_Face_Emoji.png" height="25" width="25"><br>SONO<br>INTIMORITO
                           </h5>
                         </div>
                         <div class="col-xs-4 text-center">
                           <h5>
-                            <img src="assets/img/Confused_Face_Emoji.png" height="25" width="25"><br>non<br>capisco
+                            <img src="assets/img/Confused_Face_Emoji.png" height="25" width="25"><br>NON HO<br>CAPITO
                           </h5>
                         </div>
                         <div class="col-xs-4 text-center">
                           <h5>
-                            <i class="fa fa-undo btn-circle-symbol" aria-hidden="true"></i><br>cancella<br>selezione
+                            <i class="fa fa-undo btn-circle-symbol" aria-hidden="true"></i><br>CANCELLA<br>SELEZIONE
                           </h5>
                         </div>
                       </div>
@@ -122,17 +124,17 @@
                 </div>
               </div>
               <div class="col-xs-8 col-md-8 text-justify" id="pdf-text"></div>
-              <div class="col-xs-1 col-md-1" id="readability-icon"></div>
-              <div class="col-xs-1 col-md-1" id="readability-icon-empty" hidden="true"></div>
+              <div class="col-xs-1 col-md-1" id="readability-icon" hidden="true"></div>
+              <div class="col-xs-1 col-md-1" id="readability-icon-empty"></div>
               <div class="col-xs-3 col-md-3">
-                <form id="agreements-button"></form>
+                <div id="reactions-button"></div>
               </div>
               <div class="col-xs-12">
                 <div class="final-toolbar" style="margin-top: 30px; font-size: 12pt;">
                   <form id="accept" align="center">
-                    <input type="radio" id="agree" name="finalAgreements">
+                    <input type="radio" id="agree" name="finalReactions">
                     <label for="agree">Accetto</label>
-                    <input type="radio" id="disagree" name="finalAgreements">
+                    <input type="radio" id="disagree" name="finalReactions">
                     <label for="disagree">Non accetto</label>
                   </form>
                   <form id="idFinalSubmit" align="center">

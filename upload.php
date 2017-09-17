@@ -10,7 +10,7 @@
       // msg per non accettare un file gia caricato nella cartella upload
       // echo "Sorry, file already exists.";
       // $uploadOk = 0;
-      header('Location: http://127.0.0.1/stage/definitivo/builder.php?redirectTo=' . $target_name);
+      header('Location: http://127.0.0.1/stage/stage-alessandro-fumagalli/builder.php?redirectTo=' . $target_name);
   }
 
   // Check file size
@@ -28,11 +28,11 @@
       // // Check if file already exists --> per far stampare solo un msg in caso di non accettazione del file duplicato
       // if (file_exists($target_file)) {
       //     echo "<p>Sorry, file already exists.</p>";
-      //     // header('Location: http://127.0.0.1/stage/definitivo/builder.php?redirectTo=' . $target_name);
+      //     // header('Location: http://127.0.0.1/stage/stage-alessandro-fumagalli/definitivo/builder.php?redirectTo=' . $target_name);
       // } else
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
           echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-          header('Location: http://127.0.0.1/stage/definitivo/builder.php?redirectTo=' . $target_name);
+          header('Location: http://127.0.0.1/stage/stage-alessandro-fumagalli/builder.php?redirectTo=' . $target_name);
       } else {
           echo "Sorry, there was an error uploading your file.";
       }
