@@ -10,7 +10,6 @@ class InformedConsent {
     this.readabilityScore();
   }
 
-
   createParagraphs(paragraphs){
     for (var i = 0; i < paragraphs.length; i++) {
       this.paragraphs.push(
@@ -51,11 +50,12 @@ class InformedConsent {
     this.title.forEach(function(subtitle) {
       $("#header").append("<h4>" + subtitle + "</h4>");
     })
-    $("#header").append("<h5>\"" + this.footer + "\"</h5>");
+    if (this.footer)
+      $("#header").append("<h5>\"" + this.footer + "\"</h5>");
     // var height = $("#header").height() + 20;
     // $("#text-body").css({"margin-top": (height + 'px')})
 
-    var headerHeight = $("#header").height();
+    var headerHeight = $("#header").height() > $("#visualization").height()? $("#header").height() : $("#visualization").height()+20;
     var briefingHeight = $("#briefing").height();
     var height = headerHeight + briefingHeight + 10;
     $("#text-body").css({"margin-top": (height + 'px')})
@@ -67,7 +67,7 @@ class InformedConsent {
     this.paragraphs.forEach(function(paragraph){
       var text;
       var tmp = "";
-      if (paragraph.text.match(/\@\s*(.*)\@/)){
+      if (paragraph.text.match(/\@\s*(.*)\@/)){  //TODO per html gestire h2 come paragraphs.push('@'+h2.text+'@')
         for (var i = 1; i < paragraph.text.length-1; i++) {
           if(paragraph.text[i] == '@'){
             tmp += '<br>';
@@ -136,16 +136,11 @@ class InformedConsent {
 
   zoomIn(){
     var fontSize = parseInt($('#pdf-text p').css('font-size').slice(0, -2));
-    if (fontSize >= 24)
-      $('#pdf-text p').css({'font-size': fontSize +'px'});
-    else
+    if (fontSize < 24)
       $('#pdf-text p').css({'font-size': fontSize + 2 +'px'});
-
     var height = parseInt($('.reactionButton').css('height').slice(0, -2));
     var radius = parseInt($('.btn-circle').css('border-radius').slice(0, -2));
-    if(height >= 37)
-      $('.reactionButton').css({'width': height +'px', 'height': height + 'px'});
-    else {
+    if(height < 37) {
       $('.reactionButton').css({'width': height + 2 +'px', 'height': height + 2 + 'px'});
       $('.undo').css({'width': height + 2 +'px', 'height': height + 2 + 'px', 'border-radius': radius + 10 +'px'});
     }
@@ -160,16 +155,11 @@ class InformedConsent {
 
   zoomOut(){
     var fontSize = $('#pdf-text p').css('font-size').slice(0, -2);
-    if (fontSize <= 14)
-      $('#pdf-text p').css({'font-size': parseInt(fontSize) +'px'});
-    else
+    if (fontSize > 14)
       $('#pdf-text p').css({'font-size': parseInt(fontSize) - 2 +'px'});
-
     var height = $('.reactionButton').css('height').slice(0, -2);
     var radius = parseInt($('.btn-circle').css('border-radius').slice(0, -2));
-    if (height <= 27)
-      $('.reactionButton').css({'width': parseInt(height) +'px', 'height': parseInt(height) + 'px'});
-    else {
+    if (height > 27) {
       $('.reactionButton').css({'width': parseInt(height) - 2 +'px', 'height': parseInt(height) - 2 + 'px'});
       $('.undo').css({'width': height - 2 +'px', 'height': height - 2 + 'px', 'border-radius': radius - 10 +'px'});
     }
@@ -268,7 +258,10 @@ class InformedConsent {
         text.hideIcons();
       }
     })
-    $("#showIcons").css({'margin-top': ($("#header").height() - $("#metricValue").height() +'px')});
+    var metricValueHeight = $("#header").height() > $("#visualization").height() ? $("#header").height() : $("#visualization").height();
+    $("#showIcons").css({"margin-top": (metricValueHeight - $("#metricValue").height() + 'px')})
+
+    // $("#showIcons").css({'margin-top': ($("#header").height() - $("#metricValue").height() +'px')});
   }
 
 

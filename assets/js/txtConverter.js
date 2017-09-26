@@ -1,4 +1,4 @@
-this.txtToText = function(data){
+txtToText = function(data){
   var txtFile = new XMLHttpRequest();
   txtFile.open("GET", "uploads/"+data, false);
   txtFile.overrideMimeType('text/xml; charset=iso-8859-1');
@@ -14,8 +14,31 @@ this.txtToText = function(data){
   return lines;
 }
 
+htmlToText = function(data){
+  let paragraphs = [];
+  let title = [];
+  $.ajax({
+    async: false,
+    url: "uploads/"+data,
+    success: function(result){
+      $('#pdf-text').html(result);
+      $('.WordSection1').children().each(function(){
+        if(this.tagName == 'H1')
+          title.push(this.innerText);
+        else if(this.tagName == 'P' && this.innerText.charCodeAt(0) != 160)
+          paragraphs.push(this.innerText);
+      });
+    },
+    error: function(error){
+      console.log(error);
+    }
+  });
+  $('#pdf-text').empty();
+  
+  return new InformedConsent(title, null, paragraphs);  //crea una nuova classe di tipo InformedConsent a cui si passa il titolo, il piè pagina e l'array dei paragrafi
+}
 
-this.textToParagraph = function(text){
+textToParagraph = function(text){
   var paragraphs = [];      //array che conterrà tutti i p
   var title = [];           //array che conterrà tutti i titoli
   var footer = "";          //stringa che conterrà il piè di pagina

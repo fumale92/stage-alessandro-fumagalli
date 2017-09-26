@@ -12,12 +12,19 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 function buildpage(){
-  text = txtToText(getUrlParameter('redirectTo'));
-  text = textToParagraph(text);
+  var urlParameter = getUrlParameter('redirectTo');
+  text = null;
+  if(urlParameter.match(/\.txt$/)){
+    text = txtToText(urlParameter);
+    text = textToParagraph(text);
+  }
+  else if(urlParameter.match(/\.html$/)){
+    text = htmlToText(urlParameter);
+  }
+
   text.createHeader();
   text.paragraphsToHtml();
   text.paragraphIcon();
-
   for (var i = 1; i < text.paragraphs.length+1; i++) {
     var div = '<div id="hidden-div'+i+'" class="hidden-div" style="height:'+$('#p'+i).height()+'px "></div>';
     $('#readability-icon-empty').append(div);
@@ -85,8 +92,10 @@ function buildpage(){
   $.fn.bootstrapSwitch.defaults.offColor = 'danger';
   $.fn.bootstrapSwitch.defaults.size = 'medium';
   $("[name='buttonBG']").bootstrapSwitch('labelText', 'Sfondo');
-  $("#resetReactions").css({'margin-top': ($("#header").height() - $("#visualization").height() - 10 +'px')});
-
+  if ($("#header").height() > $("#visualization").height())
+    $("#resetReactions").css({'margin-top': ($("#header").height() - $("#visualization").height() - 10 +'px')});
+  else
+    $("#resetReactions").css({'margin-top': ( 10 +'px'),'margin-bottom': '10px'});
 
   function buttonBG(){
     if ($(".bootstrap-switch-id-buttonBG").hasClass("bootstrap-switch-on")) {
