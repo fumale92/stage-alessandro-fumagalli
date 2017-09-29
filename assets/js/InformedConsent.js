@@ -67,7 +67,7 @@ class InformedConsent {
     this.paragraphs.forEach(function(paragraph){
       var text;
       var tmp = "";
-      if (paragraph.text.match(/\@\s*(.*)\@/)){  //TODO per html gestire h2 come paragraphs.push('@'+h2.text+'@')
+      if (paragraph.text.match(/\@\s*(.*)\@/)){
         for (var i = 1; i < paragraph.text.length-1; i++) {
           if(paragraph.text[i] == '@'){
             tmp += '<br>';
@@ -333,12 +333,10 @@ class InformedConsent {
         alert('Puoi selezionare solo parti di testo che non hai già selezionato');
         return;
       }
-      if(this.checkAlreadySelected(selectedText, parseInt(idParent.match(/\d+/)))){
-        if(selectedText.match(/[\n\n$]/)) {
-          this.transParagraphsSelection(selectedText, paragraphNumber, number);
-        } else {
+      if(selectedText.match(/[\n\n$]/)) {
+        this.transParagraphsSelection(selectedText, paragraphNumber, number);
+      } else if(this.checkAlreadySelected(selectedText, parseInt(idParent.match(/\d+/)))) {
           this.singleParagraphSelection(selectedText, paragraphNumber, number);
-        }
       } else {
         alert('Puoi selezionare solo parti di testo che non hai già selezionato');
       }
@@ -394,26 +392,33 @@ class InformedConsent {
     selectedText = selectedText.split("\n\n");
     var parent = document.getSelection().anchorNode.parentNode,
         idParent = parent.getAttribute("id"),
+        idParent = idParent == null ? parent.parentNode.getAttribute("id") : idParent,
         numberOfParagraph = parseInt(idParent.match(/\d+/));
     var check = true;
     if(this.getSelectDirection()){
+      var count = 0;
       for (var i = numberOfParagraph; i < selectedText.length+numberOfParagraph; i++) {
+        if(!this.checkAlreadySelected(selectedText[count], i)){
+          alert('Puoi selezionare solo parti di testo che non hai già selezionato');
+          return;
+        }
         if(i == paragraphNumber)
             check = false;
+        count ++;
       }
       if (check)
         return;
-      var count = 0;
+      count = 0;
       for (var i = numberOfParagraph; i < selectedText.length+numberOfParagraph; i++) {
         var text = $('#p' + i).html(),
             start = text.indexOf(selectedText[count]),
             end = start + selectedText[count].length;
-          if(number == 1)
-            var spn = '<span class="firstHighlight">' + selectedText[count] + '</span>';
-          else
-            var spn = '<span class="secondHighlight">' + selectedText[count] + '</span>';
-          var startText = text.substring(0, start),
-          endText = text.substring(end, text.length);
+        if(number == 1)
+          var spn = '<span class="firstHighlight">' + selectedText[count] + '</span>';
+        else
+          var spn = '<span class="secondHighlight">' + selectedText[count] + '</span>';
+        var startText = text.substring(0, start),
+        endText = text.substring(end, text.length);
         $('#p' + i).html(startText + spn + endText);
         if(start != end){
           var selection = {};
@@ -421,7 +426,7 @@ class InformedConsent {
             var text = $('#p' + i).text();
             var start = text.indexOf(selectedText[count]);
             var end = start + selectedText[count].length;
-            this.checkFullParagraph(selection, text, selectedText, start, end, number);
+            this.checkFullParagraph(selection, text, selectedText[count], start, end, number);
             $('#undo' + i).prop('disabled', false);
 
           } else {
@@ -433,13 +438,20 @@ class InformedConsent {
         count++;
       }
     } else {
+      var count = selectedText.length-1;
+
       for (var i = numberOfParagraph; i > numberOfParagraph-selectedText.length; i--) {
+        if(!this.checkAlreadySelected(selectedText[count], i)){
+          alert('Puoi selezionare solo parti di testo che non hai già selezionato');
+          return;
+        }
         if( i == paragraphNumber)
             check = false;
+        count--;
       }
       if (check)
         return;
-      var count = selectedText.length-1;
+      count = selectedText.length-1;
       for (var i = numberOfParagraph; i > numberOfParagraph-selectedText.length; i--) {
         var text = $('#p' + i).html(),
           start = text.indexOf(selectedText[count]),
@@ -457,7 +469,7 @@ class InformedConsent {
             var text = $('#p' + i).text();
             var start = text.indexOf(selectedText[count]);
             var end = start + selectedText[count].length;
-            this.checkFullParagraph(selection, text, selectedText, start, end, number);
+            this.checkFullParagraph(selection, text, selectedText[count], start, end, number);
             $('#undo' + i).prop('disabled', false);
 
           } else {

@@ -148,6 +148,12 @@
       </div>
     </div>
 
+    <footer>
+      <div class="footer" align="center">
+        <h7>Copyright © 2017 Fumagalli Alessandro</h7>
+      </div>
+    </footer>
+
     <script type="text/javascript">
       buildpage();
 

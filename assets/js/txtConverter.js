@@ -16,17 +16,27 @@ txtToText = function(data){
 
 htmlToText = function(data){
   let paragraphs = [];
+  let footer = "";
   let title = [];
   $.ajax({
     async: false,
     url: "uploads/"+data,
     success: function(result){
+      let txt = '';
       $('#pdf-text').html(result);
       $('.WordSection1').children().each(function(){
         if(this.tagName == 'H1')
           title.push(this.innerText);
         else if(this.tagName == 'P' && this.innerText.charCodeAt(0) != 160)
           paragraphs.push(this.innerText);
+        else if (this.tagName == 'H2')
+          footer = this.innerText;
+        else if(this.tagName == 'H3')
+          txt += ('@'+this.innerText+'@ ');
+        else if (this.innerText.charCodeAt(0) == 160 && txt != '') {
+          paragraphs.push(txt);
+          txt = '';
+        }
       });
     },
     error: function(error){
@@ -34,8 +44,8 @@ htmlToText = function(data){
     }
   });
   $('#pdf-text').empty();
-  
-  return new InformedConsent(title, null, paragraphs);  //crea una nuova classe di tipo InformedConsent a cui si passa il titolo, il piè pagina e l'array dei paragrafi
+
+  return new InformedConsent(title, footer, paragraphs);  //crea una nuova classe di tipo InformedConsent a cui si passa il titolo, il piè pagina e l'array dei paragrafi
 }
 
 textToParagraph = function(text){
@@ -55,7 +65,7 @@ textToParagraph = function(text){
     else if (text[i] === "\r") {          //considera le righe uguali a /r
       var pIndex = paragraphs[index];     //alla variabile pIndex si assegna il paragrafo all'indice index
       pIndex = pIndex[pIndex.length-1];   //a pIndex si assegna il penultimo elemento di pIndex
-      if (!pIndex.match(/[A-Z\_\.\@\]\)]/)) //considera solo i pIndex diversi da A-Z maiuscole e dai simboli _ . ] )
+      if (!pIndex.match(/[A-Z\_\.\:\s\@\]\)]/)) //considera solo i pIndex diversi da A-Z maiuscole e dai simboli _ . ] )
         paragraphs[index] += ".";         //aggiunge alla fine del paragrafo il punto
       index++;
     } else {
