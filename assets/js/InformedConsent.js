@@ -52,9 +52,6 @@ class InformedConsent {
     })
     if (this.footer)
       $("#header").append("<h5>\"" + this.footer + "\"</h5>");
-    // var height = $("#header").height() + 20;
-    // $("#text-body").css({"margin-top": (height + 'px')})
-
     var headerHeight = $("#header").height() > $("#visualization").height()? $("#header").height() : $("#visualization").height()+20;
     var briefingHeight = $("#briefing").height();
     var height = headerHeight + briefingHeight + 10;
@@ -144,7 +141,6 @@ class InformedConsent {
       $('.reactionButton').css({'width': height + 2 +'px', 'height': height + 2 + 'px'});
       $('.undo').css({'width': height + 2 +'px', 'height': height + 2 + 'px', 'border-radius': radius + 10 +'px'});
     }
-    // $('.btn-circle-symbol').css({'width': height + 2 +'px', 'height': height + 2 + 'px'});
     for (var i = 1; i < this.paragraphs.length+1; i++) {
       $('#paragraphReactions'+i).css({'height':($("#p" + i).height()+ 1 +'px')});
       $('#readabilityParagraph'+i).css({'height':($("#p" + i).height()+ 1 +'px')});
@@ -260,8 +256,6 @@ class InformedConsent {
     })
     var metricValueHeight = $("#header").height() > $("#visualization").height() ? $("#header").height() : $("#visualization").height();
     $("#showIcons").css({"margin-top": (metricValueHeight - $("#metricValue").height() + 'px')})
-
-    // $("#showIcons").css({'margin-top': ($("#header").height() - $("#metricValue").height() +'px')});
   }
 
 
@@ -346,6 +340,7 @@ class InformedConsent {
     }
   }
 
+
   checkAlreadySelected(selectedText, paragraphNumber){
     var found = true;
     if(document.getSelection().anchorNode.parentNode.tagName == 'SPAN')
@@ -364,6 +359,7 @@ class InformedConsent {
     }
     return found;
   }
+
 
   paragraphReaction(number, selection){
     if(number == 1){
@@ -387,6 +383,7 @@ class InformedConsent {
     else
       return false;
   }
+
 
   transParagraphsSelection(selectedText, paragraphNumber, number){
     selectedText = selectedText.split("\n\n");
@@ -481,7 +478,6 @@ class InformedConsent {
         count--;
       }
     }
-
   }
 
 

@@ -6,9 +6,9 @@
     <title>CONSENSO INFORMATO</title>
     <?php define("PREPATH", "");
     require_once(PREPATH."page_builder/_header.php") ?>
-    <script type="text/javascript" src="<?=PREPATH?>assets/js/txtConverter.js"></script>
-    <script type="text/javascript" src="<?=PREPATH?>assets/js/txtMain.js"></script>
-    <script type="text/javascript" src="<?=PREPATH?>assets/js/InformedConsent.js"></script>
+    <script type="text/javascript" src="<?=PREPATH?>assets/js/converter.js"></script>
+    <script type="text/javascript" src="<?=PREPATH?>assets/js/main.js"></script>
+    <script type="text/javascript" src="<?=PREPATH?>assets/js/informedConsent.js"></script>
     <script type="text/javascript" src="<?=PREPATH?>assets/js/calculateReadability.js"></script>
 
   </head>
@@ -84,7 +84,6 @@
                         <br><div style="margin-top: 20px">
                           <h5>ZOOM&nbsp;&nbsp;&nbsp;&nbsp;</h5>
                         </div>
-
                       </div>
                     </div>
                     <div class="col-xs-1 col-md-1" id="briefing_readabilityCircles">

@@ -18,7 +18,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12" style="margin-top: 50px">
-          <h3>Selezionare un consenso informato con estensione TXT:</h3>
+          <h3>Selezionare un consenso informato con estensione TXT o HTML:</h3>
           <form class="form" action="upload.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <input type="file" class="file" name="fileToUpload" id="fileToUpload" accept="text/plain,text/html">
@@ -29,7 +29,6 @@
                 <input type="text" class="form-control input-lg path" disabled>
                 <div class="input-group-btn">
                   <button id="search" type="button" class="browse btn btn-primary form-control input-lg">
-                    <!-- <i class="fa fa-search" aria-hidden="true"></i> Sfoglia -->
                     <i class="fa fa-folder-open" aria-hidden="true"></i> Sfoglia
                   </button>
                 </div>
@@ -52,6 +51,12 @@
       </div>
     </div>
 
+    <footer>
+      <div class="footer" align="center">
+        <h7>Copyright © 2017 Fumagalli Alessandro</h7>
+      </div>
+    </footer>
+    
     <script type="text/javascript">
       $(document).on('click', '.browse', function(){
         var file = $(this).parent().parent().parent().find('.file');
@@ -61,9 +66,6 @@
         $(this).parent().find('.path').val($(this).val().replace(/C:\\fakepath\\/i, ''));
         $('#submit').attr('disabled', false);
       });
-      // $('#search').on('click', function(){
-      //   $('#submit').attr('disabled', false);
-      // })
     </script>
 
   </body>

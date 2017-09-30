@@ -72,12 +72,17 @@
 							<button type="submit" name="Submit" class="btn btn-default">
 								Login <i class="fa fa-sign-in" aria-hidden="true"></i>
 							</button>
-              <!-- <input name="Submit" type="submit" value="Login" class="btn btn-default"> -->
             </div>
           </form>
         </div>
       </div>
     </div>
 
+		<footer>
+      <div class="footer" align="center">
+        <h7>Copyright © 2017 Fumagalli Alessandro</h7>
+      </div>
+    </footer>
+		
   </body>
 </html>
