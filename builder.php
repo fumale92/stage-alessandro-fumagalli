@@ -10,7 +10,7 @@
     <script type="text/javascript" src="<?=PREPATH?>assets/js/main.js"></script>
     <script type="text/javascript" src="<?=PREPATH?>assets/js/informedConsent.js"></script>
     <script type="text/javascript" src="<?=PREPATH?>assets/js/calculateReadability.js"></script>
-
+    
   </head>
 
   <body>
