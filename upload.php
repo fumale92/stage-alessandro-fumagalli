@@ -33,7 +33,8 @@
   } else if ($uploadOk == 1 || $uploadOk == 2) {
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
           echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-          header('Location: http://127.0.0.1/stage/stage-alessandro-fumagalli/builder.php?redirectTo=' . $target_name);
+          header('Location: http://127.0.0.1/ergonomia/builder.php?redirectTo=' . $target_name);
+          // header('Location: http://fumale92.altervista.org/ergonomia/builder.php?redirectTo=' . $target_name);
       } else {
           echo "Sorry, there was an error uploading your file.";
       }

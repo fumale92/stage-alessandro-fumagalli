@@ -51,12 +51,9 @@
       </div>
     </div>
 
-    <footer>
-      <div class="footer" align="center">
-        <h7>Copyright © 2017 Fumagalli Alessandro</h7>
-      </div>
-    </footer>
-    
+    <?php include PREPATH.'page_builder/_footer.php';?>
+
+
     <script type="text/javascript">
       $(document).on('click', '.browse', function(){
         var file = $(this).parent().parent().parent().find('.file');

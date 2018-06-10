@@ -17,5 +17,8 @@
         </div>
       </div>
     </div>
+    
+    <?php include PREPATH.'page_builder/_footer.php';?>
+
   </body>
 </html>
